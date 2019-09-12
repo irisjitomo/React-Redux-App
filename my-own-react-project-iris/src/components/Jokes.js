@@ -23,7 +23,7 @@ const Jokes = ({ jokes, isFetching, error, getJoke }) => {
 					// <div key={joke.id}>
 					//     <p>{joke.setup}</p>
 					//     <p>{joke.punchline}</p>
-					//     <br></br>
+					//     <br></br> 
 					// </div>
 					<div>
 						<Container fluid>
