@@ -20,12 +20,13 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: true,
                 error: ""
-            }
+            };
         case GOT_THEM_JOKES:
             return {
                 ...state,
                 jokes: action.payload,
-            }
+                isFetching: false
+            };
         default: 
         return state
     }

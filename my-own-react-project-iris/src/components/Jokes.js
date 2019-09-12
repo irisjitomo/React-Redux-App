@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react';
 import { Container, Header } from 'semantic-ui-react';
-import { Button } from 'semantic-ui-react'
 
 import { connect } from 'react-redux';
 
 import { getJoke } from '../actions';
 
 const Jokes = ({ jokes, isFetching, error, getJoke }) => {
-	useEffect(
-		() => {
+	useEffect(() => {
 			getJoke();
 		},
-		[ getJoke ]
-	);
+		[ getJoke ]);
+    
+    if (isFetching) {
+        return <h2>Retrieving: DAD JOKES</h2>;
+      }
 
 	return (
+        <div>
+        <div>
+            <button onClick={getJoke}>Get More</button>
+        </div>
 		<div>
-			<button onClick={getJoke}>Get More</button>
+			
             
 			{jokes.map((joke) => {
 				return (
-					// <div key={joke.id}>
-					//     <p>{joke.setup}</p>
-					//     <p>{joke.punchline}</p>
-					//     <br></br> 
-					// </div>
 					<div>
 						<Container fluid>
 							<Header as="h2">{joke.setup}</Header>
@@ -35,10 +35,10 @@ const Jokes = ({ jokes, isFetching, error, getJoke }) => {
 					</div>
 				);
 			})}
-			<button onClick={getJoke}>Get More</button>
-            
         <br></br>
 		</div>
+        <button onClick={getJoke}>Get More</button>
+        </div>
 	);
 };
 
