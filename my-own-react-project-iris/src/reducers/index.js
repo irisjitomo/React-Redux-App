@@ -1,4 +1,4 @@
-import { FETCHING_JOKE_START, GOT_THEM_JOKES } from "../actions";
+import { FETCHING_JOKE_START, GOT_THEM_JOKES, JOKE_GET_FAIL } from "../actions";
 
 const initialState = {
     jokes: [
@@ -27,6 +27,11 @@ export const reducer = (state = initialState, action) => {
                 jokes: action.payload,
                 isFetching: false
             };
+        case JOKE_GET_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         default: 
         return state
     }
